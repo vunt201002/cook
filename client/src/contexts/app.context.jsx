@@ -2,7 +2,7 @@ import { createContext, useState } from 'react';
 
 const initialAppContext = {
   theme: localStorage.getItem('theme') ? localStorage.getItem('theme') : 'light',
-  setTheme: () => null
+  setTheme: (prev) => prev || null
 };
 
 export const AppContext = createContext(initialAppContext);
