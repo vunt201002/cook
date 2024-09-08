@@ -1,11 +1,13 @@
 import express, { Express, Request, Response } from 'express';
 import { envConfig } from '~/constants/config';
-import connectDB from '~/service/database.services';
+import connectDB from '~/services/database.services';
 import rateLimit from 'express-rate-limit';
 import morgan from 'morgan';
 import helmet from 'helmet';
 import cors from 'cors';
 import bodyParser from 'body-parser';
+import usersRouter from '~/routes/user.routes';
+import blogsRouter from '~/routes/blog.routes';
 
 const app: Express = express();
 const PORT = envConfig.PORT;
@@ -34,6 +36,10 @@ app.use(bodyParser.json());
 app.get('/', (req: Request, res: Response) => {
   res.send('Hello word');
 });
+
+app.use('/users', usersRouter);
+app.use('/blogs', blogsRouter);
+
 app.listen(PORT, () => {
   console.log(`App listening on port ${PORT}`);
 });
