@@ -1,68 +1,78 @@
-:root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,100;1,400;1,500;1,700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  font-family: 'Montserrat', sans-serif;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+.container {
+  /* background: linear-gradient(#ffffff03, #00020fcd), url(assets/images/darkbg.png); */
+  background-size: cover;
+  background-position: center;
+  position: relative;
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+.navbar-links li a:hover {
+  border-radius: 25px;
+  transition: all 0.5s;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
+.btn {
+  display: inline-block;
+  padding: 10px 40px;
+  border-radius: 0 25px 25px 25px;
+  transition: 0.5s;
+  font-size: medium;
+}
+
+.btn:hover {
+  border-top-left-radius: 25px;
+}
+
+.content {
+  margin-top: 30%;
+  justify-content: space-between;
+}
+
+.chef-img {
+  width: 21%;
+  bottom: 0;
+  right: 18%;
+  position: absolute;
+  animation: move 2.5s linear infinite;
+}
+
+.chefdark-img {
+  width: 28%;
+  bottom: 0;
+  right: 13%;
+  position: absolute;
+  animation: move 2.5s linear infinite;
+}
+
+.healthy-img {
+  animation: move 2.5s linear infinite;
+}
+
+@keyframes move {
+  0% {
+    transform: translate(-20px, 0px);
   }
-  a:hover {
-    color: #747bff;
+  50% {
+    transform: translate(0px, -20px);
   }
-  button {
-    background-color: #f9f9f9;
+  100% {
+    transform: translate(-20px, 0px);
   }
+}
+
+.blob1 {
+  @apply w-80 h-80 bg-color-blob absolute top-0 -left-5 -z-10 blur-2xl opacity-30 overflow-hidden rounded-full;
+}
+
+.blob2 {
+  @apply w-80 h-80 bg-color-secondary absolute bottom-10 right-0 -z-10 blur-2xl opacity-30 overflow-hidden rounded-full;
 }
