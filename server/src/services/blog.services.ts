@@ -1,12 +1,12 @@
-import BlogsModel, { Blogs } from '~/models/schemas/blog.schema';
+import BlogModel, { Blogs } from '~/models/schemas/blog.schema';
 
 class BlogsService {
   async createBlog(blog: Blogs) {
-    return await BlogsModel.create(blog);
+    return await BlogModel.create(blog);
   }
 
   async getBlogs() {
-    return BlogsModel.aggregate([
+    return BlogModel.aggregate([
       {
         $lookup: {
           from: 'users',
